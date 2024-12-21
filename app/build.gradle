@@ -1,33 +1,33 @@
 apply plugin: 'com.android.application'
 
 def acraVersion = '5.7.0'
-def keystorePropertiesFile = rootProject.file("../keys/keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-def sFile = file(keystoreProperties['storeFile'])
-def sPassword = keystoreProperties['storePassword']
-def kAlias = keystoreProperties['keyAlias']
-def kPassword = keystoreProperties['keyPassword']
+// def keystorePropertiesFile = rootProject.file("../keys/keystore.properties")
+// def keystoreProperties = new Properties()
+// keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+// def sFile = file(keystoreProperties['storeFile'])
+// def sPassword = keystoreProperties['storePassword']
+// def kAlias = keystoreProperties['keyAlias']
+// def kPassword = keystoreProperties['keyPassword']
 
 android {
-    signingConfigs {
-        v1 {
-            storeFile sFile
-            storePassword sPassword
-            keyAlias kAlias
-            keyPassword kPassword
-            v1SigningEnabled true
-            v2SigningEnabled false
-        }
-        v2 {
-            storeFile sFile
-            storePassword sPassword
-            keyAlias kAlias
-            keyPassword kPassword
-            v1SigningEnabled true
-            v2SigningEnabled true
-        }
-    }
+    // signingConfigs {
+    //     v1 {
+    //         storeFile sFile
+    //         storePassword sPassword
+    //         keyAlias kAlias
+    //         keyPassword kPassword
+    //         v1SigningEnabled true
+    //         v2SigningEnabled false
+    //     }
+    //     v2 {
+    //         storeFile sFile
+    //         storePassword sPassword
+    //         keyAlias kAlias
+    //         keyPassword kPassword
+    //         v1SigningEnabled true
+    //         v2SigningEnabled true
+    //     }
+    // }
     compileSdk 30
     defaultConfig {
         applicationId "org.strawing.customiuizermod"
@@ -56,11 +56,11 @@ android {
     productFlavors {
         standalone {
             targetSdkVersion 30
-            signingConfig signingConfigs.v2
+            // signingConfig signingConfigs.v2
         }
         playstore {
             targetSdkVersion 30
-            signingConfig signingConfigs.v2
+            // signingConfig signingConfigs.v2
         }
     }
     packagingOptions {
@@ -84,7 +84,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10'
     implementation 'com.github.jinatonic.confetti:confetti:1.1.2'
     implementation files('libs/WeatherView-2.0.3.aar')
-    compileOnly 'de.robv.android.xposed:api:82'
+    // compileOnly 'de.robv.android.xposed:api:82'
     compileOnly files('lib/miui.jar')
     compileOnly files('lib/miuisystem.jar')
     compileOnly files('lib/framework.jar')
